@@ -1,5 +1,0 @@
-Yavia cryptocarpa	ARG(JUJ)
-Youngia japonica	ARG(COR, ERI, TUC)
-Yucca aloifolia	ARG(ERI, LPA, TUC)
-Yucca gloriosa	ARG(ERI)
-Yunquea tenzii	CHL(JFE)
