@@ -1,0 +1,16 @@
+maxval <-125
+x<-ggplot(bt, aes(x=bt$SPECIESTYPE, y=bt$TREEHEIGHTinMETRES)) +geom_boxplot(outlier.colour="red")+ scale_x_discrete(name="",limits=rev(levels(bt$SPECIESTYPE))) + theme(axis.text.y=element_text(hjust=0, size=8)) +labs(title="Belfast Tree Heights",caption="Source: Belfast Open Data")+ ylab("Height in metres") + xlab("Species Group")+ annotate("text", x=53, y=maxval, color="red", size=2.5,label="Outlier at 800",hjust=1) +annotate("segment",x=0,xend=54,color="blue",y=66.4, yend=66.4)+coord_flip(ylim=c(0,maxval))+annotate("text",x=27,color="blue",y=66.4, angle=90,label="Tallest Tree in Britain",size=2.5, vjust=1)+coord_flip(ylim=c(0,maxval))
+dd <- bt%>% filter(TREEHEIGHTinMETRES>maxval) %>%
+    group_by(SPECIESTYPE) %>%
+        summarise(outlier_txt=paste(TREEHEIGHTinMETRES,collapse=","))
+x2<-ggplot(bt, aes(x=bt$SPECIESTYPE, y=bt$TREEHEIGHTinMETRES)) +geom_boxplot(outlier.colour="red")+ scale_x_discrete(name="",limits=rev(levels(bt$SPECIESTYPE))) + theme(axis.text.y=element_text(hjust=0, size=8)) +labs(title="Belfast Tree Heights",caption="Source: Belfast Open Data")+ ylab("Height in metres") + xlab("Species Group")+ coord_cartesian(ylim=c(0,maxval)) +
+geom_text(data=dd,aes(y=maxval,label=outlier_txt),
+                 size=3,vjust=1.5,hjust=-0.5)+
+          geom_segment(data=dd,aes(y=maxval*0.95,yend=maxval,
+                       xend=factor(dd$SPECIESTYPE)),
+                 arrow = arrow(length = unit(0.1,"cm"))) 
+
+maxval <-125
+x<-ggplot(bt, aes(x=bt$SPECIESTYPE, y=bt$SPREADRADIUSinMETRES)) +geom_boxplot(outlier.colour="red")+ scale_x_discrete(name="",limits=rev(levels(bt$SPECIESTYPE))) + theme(axis.text.y=element_text(hjust=0, size=8)) +labs(title="Belfast Tree Spreads",caption="Source: Belfast Open Data")+ ylab("Spread in metres") + xlab("Species Group")+ coord_flip()
+
+x<-ggplot(bt, aes(x=bt$SPECIESTYPE, y=bt$DIAMETERinCENTIMETRES)) +geom_boxplot(outlier.colour="red")+ scale_x_discrete(name="",limits=rev(levels(bt$SPECIESTYPE))) + theme(axis.text.y=element_text(hjust=0, size=8)) +labs(title="Belfast Tree Diameters",caption="Source: Belfast Open Data")+ ylab("Diameters in centimetres") + xlab("Species Group")+ coord_flip()
