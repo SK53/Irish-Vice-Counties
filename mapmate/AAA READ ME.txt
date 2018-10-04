@@ -1,0 +1,67 @@
+This directory contains 120 files, 3 for each Praeger Vice County. These are:
+
+* A JPG file (raster) map of the VC formatted so that 10 m on the ground is 1 pixel. If printed at 254 dpi the maps are at 1:250k scale, and are projected in EPSG:29902 (the Irish Grid). See below for what goes into these files.
+* A CAL file. This describes the actual position of the map in MapMate co-ordinates (which are offset from the full numeric values of Irish Grid (for Eastings , for Northings . It also says how big the file is in pixels and the name of the JPG file. If any of these mismatch MapMate wont use the file sensibly. ONLY make changes on COPIES of these files.
+* A JPW file. This provides similar information to the CAL file but for a wider range of GIS software (but not MapMate). Provided for convenience.
+
+File Naming
+===========
+
+Files are named as follows, with an underscore between each group:
+
+Vice County identifer: H##. always 3 letters
+Scale: a number value followed by k
+mm: to indicate it's meant for use in MapMate
+xx: a map theme identifier to allow different files to be used for different purposes
+
+The current files are at 250k and are theme 1 t1), so H01_250k_mm_t1.xxx
+
+The Maps
+========
+
+The maps are created in a GIS package, QGIS, and can contain many layers:
+
+From OpenStreetMap:
+
+* Coastline
+* Inland water bodies (lakes, reservoirs)
+* Rivers and Canals
+* Woods & Forestry
+* Major roads (Motorways and primary roads)
+* Secondary roads
+* Minor roads (all other surfaced public roads)
+* Railway lines
+* Places (cities, towns & villages)
+* Vice County boundaries
+* Townland boundaries
+
+Derived in QGIS from data from Viewfinderpanoramas (SRTM data with some void filling)
+
+* Contours at 50 m intervals 
+* Hill shading
+* Relief colouring
+
+Each layer can be present or not and can be styled in many different ways.
+
+The theme in this directory contains nearly all these layers. It is not primarily intended as a theme for displaying data, but more for active recorders to enable swifter location of sites when adding data (particularly for casual records), and as an aid for checking and verification of records. Most of the features are added as in my experience they help locate places quickly. The scale & theme are suitable for recording at the monad level and higher, but does not provide enough detail for finer level recording.
+
+I plan to experiment with other themes, and tweak styles (for instance currently road colouring is based on traditional OSGB colours): and am open to suggestions for improvement or requests for more limited themes.
+
+Using the Files
+===============
+
+1. In MapMate create a new Base Map, based on the relevant VC definition provided.
+2. Alter the map to fit 10k grid exactly
+3. Place the JPG & the CAL file in the directory you wish to use for the work
+4. Add the file from the Edit menu as a new Map Picture file ...
+
+Other FAQs
+==========
+
+1. Why are do the maps cover such a large area? All the maps are based on creating a base map in MapMate from MapMates internal definition of the VC and then altering the boundary of the map so that it exactly fits 10k grid squares. This was done to make the process of creating CAL files easier. My copy of MapMate seems to thing that the Dingle Peninsula is in H2, so that map extends much more to the west than would otherwise be required. I will progressively reduce the size, but will always align to 5km grid lines.
+
+2. Can I make my own? I can provide a suitable QGIS file and the base layer files to anyone who wishes to take it further. I plan to publish these on Github too.
+
+3. Can I see the calculations of the offsets for the MapMate grid? You certainly can! A CSV file is enclosed which shows the co-ordinates n eastings and northings for the bottom right and top left corner of each map in both MapMate & Irish Grid. These co-orindates are also shown in more traditional format (G4060).
+
+
