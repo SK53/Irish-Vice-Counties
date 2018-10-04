@@ -1,0 +1,19 @@
+<mapmate>
+  <cal>
+    <name>H30_250k_mm_t1.jpg</name>
+    <timestamp><timestamp>
+    <copyright></copyright>
+    <units>m</units>
+    <datum>WGS84-modified</datum>
+    <projection>Local</projection>
+    <coodtype>EN</coodtype>
+    <rotation>0</rotation>
+    <type>raster</type>
+    <xo>0</xo>
+    <yo>430000</yo>
+    <xi>120000</xi>
+    <yi>510000</yi>
+    <xpixels>4800</xpixels>
+    <ypixels>3200</ypixels>
+  </cal>
+</mapmate>
